@@ -1,0 +1,21 @@
+.container-fluid{
+  background-color: rgb(51, 42, 42) !important;
+  color: white;
+}
+h1{
+  padding-top: 5px;
+  font-size: 23px;
+  text-align:center;
+}
+.row{
+  margin: 5px;
+}
+
+.btn{
+  margin: 6px;
+
+}
+
+h4{
+  font-size: 20px;
+}

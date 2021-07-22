@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <ng-progress></ng-progress>
+  <h1>My Goals</h1>
+  <hr>
+  <h4>My goals for today are: </h4>
+  <br>
+  <div class="row">
+      <div class="col-md-6">
+          <div *ngFor = 'let goal of goals; let i = index'>
+              <div>
+                  <h4 id = {{i}} appStrikethrough>
+                      {{goal.id}}:  {{goal.nameOfGoal}}.
+                  </h4>
+                  <!-- Click event binding -->
+                  <!-- <button (click)='toggleDetails(i)' class="btn btn-warning">Toggle Details</button> -->
+                  <button (click)='goToUrl(goal.id)' class="btn btn-warning">View Details</button>
+                  <button class="btn btn-danger" (click)='deleteGoal(i)'>Delete Goal</button>
+
+              </div>
+              <!-- <div *ngIf = 'goal.showDescription'>
+                  Below is for input property binding and output property binding
+                  <app-goal-detail  [goalDescription]='goal' (isComplete) = 'completeGoal($event,i)' (goalIsComplete) = 'deleteGoal($event,i)'>
+                  </app-goal-detail>
+              </div> -->
+          </div>
+          <p *ngIf = 'goals.length > 4 ; else moreGoals'>
+              Your Goals are too many
+          </p>
+          <div class="row">
+            <blockquote class="blockquote text-center">
+              <h4>Today's Quote!</h4>
+              <p class="mb-4">{{quote.quote}}</p>
+              <footer class="blockquote-footer"><cite>{{quote.author}}</cite></footer>
+            </blockquote>
+          </div>
+          <ng-template #moreGoals>
+              <p>You need more goals!!</p>
+          </ng-template>
+      </div>
+      <div class="col-md-6">
+          <app-goal-form (addGoal) = "addNewGoal($event)"></app-goal-form>
+      </div>
+
+      <br>
+  </div>
+ <hr>
+</div>
